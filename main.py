@@ -254,7 +254,7 @@ def ask_ai(chat_history):
         message = response.json()["choices"][0]["message"]
 
         if message.get("tool_calls"):
-            tool_call = message["tool_call"][0]
+            tool_call = message["tool_calls"][0]
             function_name = tool_call["function"]["name"]
             arguments = json.loads(tool_call["function"]["argumenets"])
 
