@@ -256,7 +256,7 @@ def ask_ai(chat_history):
         if message.get("tool_calls"):
             tool_call = message["tool_calls"][0]
             function_name = tool_call["function"]["name"]
-            arguments = json.loads(tool_call["function"]["argumenets"])
+            arguments = json.loads(tool_call["function"]["arguments"])
 
             if function_name == "check_availability":
                 arguments["people"] = int(arguments["people"])
