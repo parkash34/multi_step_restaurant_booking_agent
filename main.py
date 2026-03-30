@@ -101,7 +101,7 @@ tools = [
                         "description": "Time given by customer, in which they are going to have dinner"
                     },
                     "people": {
-                        "type": "integer",
+                        "type": "string",
                         "description": "Number of people e.g. 5"
                     }
                 },
@@ -163,7 +163,7 @@ tools = [
                         "description": "Time given by customer, in which they are going to have dinner"
                     },
                     "people": {
-                        "type": "integer",
+                        "type": "string",
                         "description": "Number of people e.g. 5"
                     },
                     "special_requirement": {
@@ -259,14 +259,12 @@ def ask_ai(chat_history):
             arguments = json.loads(tool_call["function"]["arguments"])
 
             if function_name == "check_availability":
-                arguments["people"] = int(arguments["people"])
                 result = check_availability(**arguments)
             elif function_name == "check_menu":
                 result = check_menu(**arguments)
             elif function_name == "check_dietary_options":
                 result = check_dietary_options(**arguments)
             elif function_name == "book_table":
-                arguments["people"] = int(arguments["people"])
                 result = book_table(**arguments)
             elif function_name == "get_restaurant_info":
                 result = get_restaurant_info()
@@ -310,7 +308,7 @@ def ask_ai(chat_history):
     except requests.exceptions.ConnectionError:
         return "Connection Error! Please check your network."
     except requests.exceptions.HTTPError as e:
-        return f"API Error {e.response.status_code}"
+        return f"API Error {e.response.status_code} - {e.response.json()}"
     except Exception as e:
         return f"Something went wrong! {str(e)}"
     
