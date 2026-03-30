@@ -262,7 +262,7 @@ def ask_ai(chat_history):
                 arguments["people"] = int(arguments["people"])
                 result = check_availability(**arguments)
             elif function_name == "check_menu":
-                result == check_menu(**arguments)
+                result = check_menu(**arguments)
             elif function_name == "check_dietary_options":
                 result = check_dietary_options(**arguments)
             elif function_name == "book_table":
