@@ -32,7 +32,7 @@ requests, proactively gathering missing information before executing actions.
 ```
 smartbooking/
 │
-├── env/               
+├── .venv/               
 ├── main.py            
 ├── .env               
 └── requirements.txt   
@@ -47,8 +47,8 @@ git clone https://github.com/yourusername/smartbooking
 
 2. Create and activate virtual environment
 ```
-python -m venv env
-env\Scripts\activate
+python -m venv .venv
+.venv\Scripts\activate
 ```
 
 3. Install dependencies
